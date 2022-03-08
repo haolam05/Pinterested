@@ -1,6 +1,13 @@
-<div class="jumbotron center add_right_padding" style="padding: 20px 0px 15px 30px;" style="display: flex;">
+<div class="jumbotron center" style="padding: 20px 0px 15px 30px;" style="display: flex;">
   <h1 class="display-4">Welcome To My Pinterested App!</h1>
   <p class="lead">Pretty cool, don't you think?</p>
 
-
+  <div style="align-self: flex-end;">
+    <% if !user_signed_in? %>
+	    <%= link_to 'Join', new_user_registration_path, class: 'btn btn-primary' %>
+	    <%= link_to 'Login', new_user_session_path, class: 'btn btn-outline-info' %>
+    <% else %>
+      <strong><i>Welcome!<i></strong>
+    <% end %>
+  <div>
 </div>

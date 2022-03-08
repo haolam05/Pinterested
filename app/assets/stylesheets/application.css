@@ -20,3 +20,15 @@
 .add_right_padding {
   padding-right: 20px;
 }
+
+.add_left_padding {
+  padding-left: 20px;
+}
+
+.add_bottom_padding {
+  padding-bottom: 20px;
+}
+
+.add_top_padding {
+  padding-top: 20px;
+}

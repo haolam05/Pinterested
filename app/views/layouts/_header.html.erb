@@ -12,6 +12,22 @@
       <li class="nav-item active navbar-text add_right_padding">
         <%= link_to 'About Me', home_about_path %>
       </li>
+      
+      <% if user_signed_in? %>
+        <li class="nav-item active navbar-text add_right_padding">
+          <%= link_to 'Edit Profile', edit_user_registration_path %>
+        </li>
+        <li class="nav-item active navbar-text add_right_padding">
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li class="nav-item active navbar-text add_right_padding">
+          <%= link_to 'Login', new_user_session_path %>
+        </li>
+        <li class="nav-item active navbar-text add_right_padding">
+          <%= link_to 'Join', new_user_registration_path %>
+       </li>
+      <% end %>
     </ul>
   </div>
 </nav>
