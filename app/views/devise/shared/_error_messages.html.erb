@@ -1,15 +1,20 @@
 <% if resource.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= I18n.t("errors.messages.not_saved",
+  <div class="row", style="padding: 20px 0px 15px 30px;">
+    <div class="col-sm-6", style=" background-color: red;">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title", id="error_explanation">
+                  <%= I18n.t("errors.messages.not_saved",
                  count: resource.errors.count,
-                 resource: resource.class.model_name.human.downcase)
-       %>
-    </h2>
-    <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+                 resource: resource.class.model_name.human.downcase)%>
+          </h5>
+          <ul>
+            <% resource.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
