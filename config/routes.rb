@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  #pins
   resources :pins
+  
   #devise
   devise_for :users
   
