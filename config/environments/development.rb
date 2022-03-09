@@ -31,4 +31,8 @@ Rails.application.configure do
 
   # Added as devise installation instruction
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # sending emails via devise
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true  # in development environments, emails won't be sent by default => enable
 end
