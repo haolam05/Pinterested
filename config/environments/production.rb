@@ -26,7 +26,16 @@ Rails.application.configure do
   # Added as devise installation instruction --- ACTUAL HOST, URL to get to website in production
   config.action_mailer.default_url_options = { host: 'railspinterest555.herokuapp.com' }
 
-  # sending emails via devise
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true  
+  config.action_mailer.perform_deliveries = true
+  config.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    user_name: 'tuonghao2001@gmail.com',
+    password: 'uwkzgdmhmmfllxpy',
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 end
