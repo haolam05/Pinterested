@@ -1,14 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Pins</h1>
+<div class="add_top_padding card .card-group", style="margin: 40px 90px 90px 90px">
+  <div class="card-title"><h1 class="add_top_padding add_left_padding font-weight-bold">Pins List</h1></div>
+  <div class="card-body">
+    <div id="pins">
+      <% @pins.each do |pin| %>
+        <%= render pin %>
+        <p>
+          <%= link_to "Show this pin", pin, class: 'btn btn-outline-info' %>
+        </p>
+      <% end %>
+    </div>
+  </div>
 
-<div id="pins">
-  <% @pins.each do |pin| %>
-    <%= render pin %>
-    <p>
-      <%= link_to "Show this pin", pin %>
-    </p>
-  <% end %>
+  <div class="card-footer">
+    <%= link_to "New pin", new_pin_path, class: 'btn btn-primary' %> 
+  </div>
 </div>
-
-<%= link_to "New pin", new_pin_path %>

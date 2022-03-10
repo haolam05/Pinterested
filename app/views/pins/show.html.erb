@@ -1,10 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @pin %>
-
-<div>
-  <%= link_to "Edit this pin", edit_pin_path(@pin) %> |
-  <%= link_to "Back to pins", pins_path %>
-
-  <%= button_to "Destroy this pin", @pin, method: :delete %>
+<div class="add_top_padding card .card-group", style="margin: 40px 90px 90px 90px">
+  <div class="card-title"><h1 class="add_top_padding add_left_padding font-weight-bold"><%= render @pin %></h1></div>
+  <div class="card-body">  <%= button_to "Destroy this pin", @pin, method: :delete, class: 'btn btn-danger' %></div>
+  <div class="card-footer">
+    <%= link_to "Edit this pin", edit_pin_path, class: 'btn btn-outline-info' %>
+    <%= link_to "Back to pins", pins_path, class: 'btn btn-outline-info' %>
+  </div>
+  <div>
+  </div>
 </div>

@@ -1,10 +1,12 @@
-<h1>Editing pin</h1>
+<div class="add_top_padding card .card-group", style="margin: 40px 90px 90px 90px">
+  <div class="card-title"><h1 class="add_top_padding add_left_padding font-weight-bold">Editing pin</h1></div>
+  <div class="card-body"><%= render "form", pin: @pin %></div>
+  <div class="card-footer">
+    <%= link_to "Show this pin", @pin, class: 'btn btn-outline-info' %> 
+    <%= link_to "Back to pins", pins_path, class: 'btn btn-outline-info' %>
+  </div>
 
-<%= render "form", pin: @pin %>
+  <div>
 
-<br>
-
-<div>
-  <%= link_to "Show this pin", @pin %> |
-  <%= link_to "Back to pins", pins_path %>
+  </div>
 </div>

@@ -7,7 +7,10 @@
 	    <%= link_to 'Join', new_user_registration_path, class: 'btn btn-primary' %>
 	    <%= link_to 'Login', new_user_session_path, class: 'btn btn-outline-info' %>
     <% else %>
-      <strong><i>Welcome!<i></strong>
+      <strong><i>Welcome!<i></strong><br>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
+      <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-outline-info' %>
+      <%= link_to 'List Pins', pins_path, class: 'btn btn-outline-info' %>
     <% end %>
   <div>
 </div>
