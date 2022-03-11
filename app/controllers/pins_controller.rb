@@ -23,15 +23,21 @@ class PinsController < ApplicationController
 
   # POST /pins or /pins.json
   def create
-    @pin = current_user.pins.build(pin_params)
+    if pin_params[:description].empty?
+      redirect_to new_pin_path, notice: "Must have a description to upload a new pin!"
+    elsif !pin_params.has_key?(:image_header)
+      redirect_to new_pin_path, notice: "Must have an image to upload a new pin!"
+    else  
+      @pin = current_user.pins.build(pin_params)
 
-    respond_to do |format|
-      if @pin.save
-        format.html { redirect_to pin_url(@pin), notice: "Pin was successfully created." }
-        format.json { render :show, status: :created, location: @pin }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @pin.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @pin.save
+          format.html { redirect_to pin_url(@pin), notice: "Pin was successfully created." }
+          format.json { render :show, status: :created, location: @pin }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @pin.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -67,7 +73,7 @@ class PinsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pin_params
-      params.require(:pin).permit(:description, :user_id)
+      params.require(:pin).permit(:description, :user_id, :image_header)
     end
 
     def correct_user

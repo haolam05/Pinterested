@@ -44,4 +44,7 @@ Rails.application.configure do
     authentication: 'plain',
     enable_starttls_auto: true
   }
+
+  # Store files locally.
+  config.active_storage.service = :local
 end

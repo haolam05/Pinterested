@@ -4,6 +4,7 @@
     <div id="pins">
       <% @pins.each do |pin| %>
         <%= render pin %>
+        <%= link_to (image_tag pin.thumbnail, style: 'margin-bottom: 5px;'), pin.image_header %>
         <p>
           <%= link_to "Show this pin", pin, class: 'btn btn-outline-info' %>
         </p>
