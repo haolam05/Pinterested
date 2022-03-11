@@ -37,3 +37,10 @@
   border-color: #00B68C;
   border: 5px solid;
 }
+
+@media screen and (max-width: 600px) {
+  .show_page_heading {
+    font-size: 1rem;
+  }
+}
+
