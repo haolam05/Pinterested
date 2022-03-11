@@ -1,13 +1,6 @@
 <div class="add_top_padding card .card-group", style="margin: 40px 90px 90px 90px">
   <div class="card-title"><h1 class="add_top_padding add_left_padding font-weight-bold"><%= render @pin %></h1></div>
   <div class="card-body">
-    <%
-      metadata = ActiveStorage::Analyzer::ImageAnalyzer::ImageMagick.new(@pin.image_header).metadata
-      width, height = metadata[:width], metadata[:height]
-    %>
-
-    <%= width.is_a?(Integer) %><br>
-
     <%= link_to (image_tag @pin.show, style: 'margin-bottom: 5px;'), @pin.show %>
     <%= button_to "Destroy this pin", @pin, method: :delete, class: 'btn btn-danger' %>   
   </div>
