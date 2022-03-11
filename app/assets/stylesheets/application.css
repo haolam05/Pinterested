@@ -32,3 +32,8 @@
 .add_top_padding {
   padding-top: 20px;
 }
+
+.card_border {
+  border-color: #00B68C;
+  border: 5px solid;
+}

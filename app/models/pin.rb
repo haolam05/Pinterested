@@ -3,7 +3,14 @@ class Pin < ApplicationRecord
 	has_one_attached :image_header
 
 	def show
-		return self.image_header;
+		metadata = ActiveStorage::Analyzer::ImageAnalyzer::ImageMagick.new(image_header).metadata
+		width, height = metadata[:width], metadata[:height]
+
+		if width > 600 || height > 800
+			self.image_header.variant(resize_to_fit: [500, 500]).processed;
+		else
+			self.image_header;
+		end
 	end
 
 	def thumbnail
@@ -15,7 +22,13 @@ class Pin < ApplicationRecord
 			# return self.image_header.variant(resize: 1.1);
 		# else
 
+
 		# processed: not to resize everytime
-		return self.image_header.variant(resize_to_fit: [300, 300]).processed;
+		self.image_header.variant(resize_to_fit: [100, 100]).processed;
 	end
+
+	# def author
+	# 	metadata = ActiveStorage::Analyzer::ImageAnalyzer::ImageMagick.new(image_header).metadata
+	# 	user_id = metadata[:user_id]
+	# end
 end
