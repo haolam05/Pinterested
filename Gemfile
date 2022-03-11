@@ -15,6 +15,7 @@ gem "bootsnap", require: false
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem "image_processing"
 gem 'ruby-vips'
+gem "aws-sdk-s3"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

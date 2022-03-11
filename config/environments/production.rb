@@ -26,6 +26,10 @@ Rails.application.configure do
   # Added as devise installation instruction --- ACTUAL HOST, URL to get to website in production
   config.action_mailer.default_url_options = { host: 'railspinterest555.herokuapp.com' }
 
+  # stores image on amazon s3
+  config.active_storage.service = :amazon
+
+
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
@@ -37,4 +41,5 @@ Rails.application.configure do
     password: ENV['APP_PASSWORD'],
     authentication: 'plain',
     enable_starttls_auto: true
-  }end
+  }
+end

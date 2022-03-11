@@ -32,6 +32,11 @@ Rails.application.configure do
   # Added as devise installation instruction
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  # Store images locally.
+  config.active_storage.service = :local
+
+
+
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
@@ -44,7 +49,4 @@ Rails.application.configure do
     authentication: 'plain',
     enable_starttls_auto: true
   }
-
-  # Store files locally.
-  config.active_storage.service = :local
 end
