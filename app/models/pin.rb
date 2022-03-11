@@ -14,6 +14,8 @@ class Pin < ApplicationRecord
 			# return self.image_header.variant(resize_to_limit: [400, 400]);
 			# return self.image_header.variant(resize: 1.1);
 		# else
-		return self.image_header.variant(resize_to_fit: [300, 300]);
+
+		# processed: not to resize everytime
+		return self.image_header.variant(resize_to_fit: [300, 300]).processed;
 	end
 end
