@@ -27,10 +27,10 @@ class Pin < ApplicationRecord
 		self.image_header.variant(resize_to_fit: [100, 100]).processed;
 	end
 
-	def author
-		user_id = ActiveStorage::Analyzer::ImageAnalyzer::ImageMagick.new(image_header).blob.record.user_id
-		author = User.find(user_id).name
-	rescue
-		"Unknown"
-	end
+	# def author
+	# 	user_id = ActiveStorage::Analyzer::ImageAnalyzer::ImageMagick.new(image_header).blob.record.user_id
+	# 	author = User.find(user_id).name
+	# rescue
+	# 	"Unknown"
+	# end
 end

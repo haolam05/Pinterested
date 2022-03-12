@@ -1,3 +1,20 @@
+<div class="jumbotron center" style="padding: 20px 0px 15px 30px;" style="display: flex;">
+  <h1 class="display-4">Welcome To My Pinterested App!</h1>
+  <p class="lead">Pretty cool, don't you think?</p>
+
+  <div style="align-self: flex-end;">
+    <% if !user_signed_in? %>
+      <%= link_to 'Join', new_user_registration_path, class: 'btn btn-primary' %>
+      <%= link_to 'Login', new_user_session_path, class: 'btn btn-outline-info' %>
+    <% else %>
+      <strong><i>Welcome!<i></strong><br>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
+      <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-outline-info' %>
+      <%= link_to 'List Pins', pins_path, class: 'btn btn-outline-info' %>
+    <% end %>
+  <div>
+</div>
+
 <div class="add_top_padding card .card-group", style="margin: 40px 90px 90px 90px">
   <div class="card-title"><h1 class="add_top_padding add_left_padding font-weight-bold">Pins List</h1></div>
   <div class="card-body">
@@ -16,4 +33,3 @@
     <%= link_to "New pin", new_pin_path, class: 'btn btn-primary' %> 
   </div>
 </div>
-

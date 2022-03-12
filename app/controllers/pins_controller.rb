@@ -1,6 +1,6 @@
 class PinsController < ApplicationController
   before_action :set_pin, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: %i[ :index, :show ]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /pins or /pins.json
@@ -10,6 +10,9 @@ class PinsController < ApplicationController
 
   # GET /pins/1 or /pins/1.json
   def show
+    if current_user.name.nil? || current_user.email.nil?
+      redirect_to edit_user_registration_path, notice: "Please fill in your name and email!" 
+    end
   end
 
   # GET /pins/new
