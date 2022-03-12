@@ -10,7 +10,9 @@ class PinsController < ApplicationController
 
   # GET /pins/1 or /pins/1.json
   def show
-    if current_user.name.nil? || current_user.email.nil?
+    if !user_signed_in?
+      redirect_to new_user_session_path, notice: "Please log in first"
+    elsif current_user.name.nil? || current_user.email.nil?
       redirect_to edit_user_registration_path, notice: "Please fill in your name and email!" 
     end
   end
