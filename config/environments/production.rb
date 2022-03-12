@@ -24,7 +24,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Added as devise installation instruction --- ACTUAL HOST, URL to get to website in production
-  config.action_mailer.default_url_options = { host: 'railspinterest555.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'https://railspinterest555.herokuapp.com' }
 
   # stores image on amazon s3
   config.active_storage.service = :amazon
