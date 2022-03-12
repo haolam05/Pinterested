@@ -31,5 +31,7 @@
 
   <div class="card-footer">
     <%= link_to "New pin", new_pin_path, class: 'btn btn-primary' %> 
+    <%= will_paginate @pins, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
   </div>
 </div>
+

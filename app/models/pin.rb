@@ -24,7 +24,7 @@ class Pin < ApplicationRecord
 
 
 		# processed: not to resize everytime
-		self.image_header.variant(resize_to_fit: [100, 100]).processed;
+		self.image_header.variant(resize_to_fit: [300, 300]).processed;
 	end
 
 	def author
