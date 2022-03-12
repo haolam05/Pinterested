@@ -1,12 +1,19 @@
 <div class="add_top_padding card .card-group card_border", style="margin: 40px 90px 90px 90px">
-  <div class="card-title"><h1 class="add_top_padding add_left_padding font-weight-bold"><%= render @pin %></h1></div>
+  <div class="card-title">
+    <h1 class="add_top_padding add_left_padding font-weight-bold"><%= render @pin %></h1>
+    <h3 class="add_top_padding add_left_padding">Uploaded By: <%= @pin.author %></p>
+  </div>
   <div class="card-body">
     <%= link_to (image_tag @pin.show, style: 'margin-bottom: 5px;'), @pin.show %>
-    <%= button_to "Destroy this pin", @pin, method: :delete, class: 'btn btn-danger' %>    
+    <% if @pin.user == current_user %>
+      <%= button_to "Destroy this pin", @pin, method: :delete, class: 'btn btn-danger' %>    
+    <% end %>
   </div>
   <%= link_to "Download", rails_blob_path(@pin.image_header, disposition: "attachment"), class: 'btn btn-outline-success' %>  
   <div class="card-footer">
-    <%= link_to "Edit this pin", edit_pin_path, class: 'btn btn-outline-info' %>
+    <% if @pin.user == current_user %>
+      <%= link_to "Edit this pin", edit_pin_path, class: 'btn btn-outline-info' %>
+    <% end %>
     <%= link_to "Back to pins", pins_path, class: 'btn btn-outline-info' %>
   </div>
   <div>

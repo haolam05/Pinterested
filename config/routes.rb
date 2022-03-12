@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 
   #rails
-  root 'home#index'
+  root 'pins#index'
   get 'home/about'
   #rails
 end
