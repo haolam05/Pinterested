@@ -1,7 +1,7 @@
 <div class="add_top_padding card .card-group card_border", style="margin: 40px 90px 90px 90px">
   <div class="card-title">
     <h1 class="add_top_padding add_left_padding font-weight-bold"><%= render @pin %></h1>
-    <h3 class="add_top_padding add_left_padding">Uploaded By: <%= current_user.name.nil? ? current_user.name : "Unknown" %></p>
+    <h3 class="add_top_padding add_left_padding">Uploaded By: <%= @pin.author %></p>
   </div>
   <div class="card-body">
     <%= link_to (image_tag @pin.show, style: 'margin-bottom: 5px;'), @pin.show %>
