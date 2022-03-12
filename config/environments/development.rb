@@ -35,18 +35,17 @@ Rails.application.configure do
   # Store images locally.
   config.active_storage.service = :local
 
-
-
+  # smtp confirmation email and forgot password set up
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.smtp_settings = {
-    address: Rails.application.credentials.config[:gmail][:address],
-    port: 587,
-    domain: Rails.application.credentials.config[:gmail][:domain],
-    user_name: Rails.application.credentials.config[:gmail][:email],
-    password: Rails.application.credentials.config[:gmail][:app_password],
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
+  config.action_mailer.smtp_settings = {
+    :address => Rails.application.credentials.config[:gmail][:address],
+    :port => 587,
+    :domain => Rails.application.credentials.config[:gmail][:domain],
+    :user_name => Rails.application.credentials.config[:gmail][:email],
+    :password => Rails.application.credentials.config[:gmail][:app_password],
+    :authentication => 'plain',
+    :enable_starttls_auto => true
+  } 
 end
